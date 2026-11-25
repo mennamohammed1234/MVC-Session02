@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using WebApplication2.Dbcontext;
+using WebApplication2.reposetaries.clacces;
+using WebApplication2.reposetaries.interfaces;
+
 namespace WebApplication2
 {
     public class Program
@@ -8,6 +13,10 @@ namespace WebApplication2
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<Gymcontxt>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<Iplan, Plan>();
+            builder.Services.AddScoped<IMembershiprepocs, Membershiprepo>();
+
 
             var app = builder.Build();
 

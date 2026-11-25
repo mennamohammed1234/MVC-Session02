@@ -171,7 +171,7 @@ namespace WebApplication2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Plane", t =>
+                    b.ToTable("planes", t =>
                         {
                             t.HasCheckConstraint("numofdays", "DurationDays  between 1 and 365 ");
                         });
@@ -213,7 +213,7 @@ namespace WebApplication2.Migrations
 
                     b.HasIndex("TrainerId");
 
-                    b.ToTable("Session", t =>
+                    b.ToTable("sessions", t =>
                         {
                             t.HasCheckConstraint("capacityconstrain", "Capacity  between 1 and 25");
 
